@@ -5,25 +5,25 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-		<link rel="SHORTCUT ICON" href="favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<style type="text/css">
 			.list_Bottom{
 				position: fixed;
 				width: 100%;
 				height: 60px;
-				background: rgba(0,0,0,0.3);
+				background: rgba(238,183,99,0.8);
 				bottom: 0;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
 				list-style: none;
+				z-index: 99999999999999999999999;
 			}
 			.list_Bottom li{
 				width: 30%;
 				list-style: none;
 				text-align: center;
-				font-size: 14px;
+				font-size: 12px;
 				color: #fff;
 			}
 			.list_Bottom li a{
@@ -38,16 +38,7 @@
 			}
 		</style>
 	</head>
-	<body style="height: 1000px;">
-		<ul class="list_Bottom">
-			<li><img src="img/bottom_QQ.png" /><p>QQ咨询</p></li>
-			<li>
-				<a href="callto:[10086]">
-					<img src="img/bottom_tell.png" /><p>拨打电话</p>
-				</a>
-			</li>
-			<li data-href=".modelMessages"><img src="img/bottom_liuyan.png"/><p>在线留言</p></li>
-		</ul>
+	<body style="height: 1000px;background: url(img/banner.jpg);">
 		<ul class="list_box">
 			<li class="Relation" data-href=".modelRelation"><img src="img/tel.png" width="100%" /></li>
 			<li><img src="img/QQ.png" width="100%" /></li>
@@ -135,9 +126,21 @@
 				<h6 class="allCls">关闭</h6>
 			</div>
 		</div>
+		<ul class="list_Bottom">
+			<li><img src="img/bottom_QQ.png" /><p>QQ咨询</p></li>
+			<li>
+				<a href="tel:10086" id="list_BottomTel">
+					<img src="img/bottom_tell.png" /><p>拨打电话</p>
+				</a>
+			</li>
+			<li data-href=".modelMessages"><img src="img/bottom_liuyan.png"/><p>在线留言</p></li>
+		</ul>
+
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript">
 			/*弹出框*/
+			var tel="tel:"+10086
+			$("#list_BottomTel").attr("href",tel)
 			$(".list_box li").on("click", function() {
 	    		var id = $(this).attr("data-href")
 				if(id !== undefined) {
